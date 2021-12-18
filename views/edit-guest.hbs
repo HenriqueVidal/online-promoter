@@ -1,0 +1,174 @@
+<body>
+<style>
+.container0 {
+  margin-top: 2%;
+}
+.guestContainer {  
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: 348px;
+  max-width: 700px;
+  max-height: 291px;
+  overflow: auto;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  align-content: center;
+}
+.guestDiv2 {
+  font-size: 1.5em;
+  line-height: 1.3em;
+  background-color: white;
+  display: block;
+  border: 1px solid #00000020;
+  border-radius: 4px;
+  padding: 6px;
+  margin: 2px;
+  min-width: 345px;
+  min-height: 188px;
+  max-height: 400px;
+}
+h2 {
+  font-size: 1.8rem;
+  color: #007bff;
+  text-align: center;
+}
+.navButtons {
+  margin: auto;
+  padding: 2px 6px;
+}
+.card {
+  margin: 10px auto 0px auto;
+  max-width: 340px;
+  background-color: #F0F2F5;
+  box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
+}
+.formEdit {
+  margin: auto;
+}
+li{
+  display: none;
+}
+.idDiv {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.idL {
+  width: 56px;
+  height: 26px;
+  margin: 0px 6px;
+}
+.btn-save {
+  padding: 7px;
+  border-radius: 13px;
+}
+#searchGuest {
+  background-image: url('/css/searchicon.png'); 
+  background-position: 177px 6px;
+  background-repeat: no-repeat;
+  font-size: 16px; 
+  padding: 6px;
+  margin: 12px 10px;
+}
+#guestUL {
+  list-style-type: none;
+  padding: 0;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#guestUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; 
+  background-color: #f6f6f6; 
+  padding: 12px; 
+  text-decoration: none; 
+  font-size: 18px; 
+  color: black;
+  display: block;
+}
+#guestUL li a:hover:not(.header) {
+  background-color: #eee; 
+}
+</style>
+
+  <div class="globalContainer">
+    <div>
+      <nav class="navButtons">
+        <form action="logout">
+          <button class="btn btn-secondary">Sair</button>
+        </form> <br>
+        <div>
+          <form action="/l/guest-list"><button class="btn btn-primary">Lista de Convidados</button>
+          </form>
+        </div>
+      </nav>
+      <main class="container0">
+        <div class="grid2">
+        <ul class="guestContainer" id="guestUL">
+          {{#each convidados}}
+            <li>
+              <div class="guestDiv2" id="guest-{{id}}">
+                Código:<strong class="idP">  {{id}}</strong> <br>
+                Nome:<strong class="searchP">    {{nome}} {{sobrenome}}</strong> <br>
+                Idade:<strong>    {{idade}}</strong> <br>
+                E-mail:<strong> {{email}}</strong> <br>
+                Telefone:<strong>  {{telefone}}</strong>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+          <div class="card">
+            <div class="card-body">
+              <h2>Editar dados do Convidado</h2>
+              <br>
+              {{#if expressFlash}}
+                <div class="alert alert-success m2-4 mb-2" role="alert" style="text-align: center">
+                  {{expressFlash}}
+                </div>
+              {{/if}}
+                <br>
+              <form class="formEdit" action="edit-guest" method="POST">
+                <div class="idDiv">
+                  <label for="guestId"><strong>Código:</strong></label>
+                  <input type="text" maxLength="4" class="form-control idL" name="guestId" required="required" id="searchGuest" onkeyup="finderId()">
+                  <button type="submit" class="btn btn-primary btn-save">Salvar</button>
+                </div>
+                <div class="form-group">
+                  <label for="firstName">Nome</label>
+                  <input type="text" class="form-control" id="f_name" aria-describedby="emailHelp" placeholder="Digite o nome" name="f_name" >
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Sobrenome</label>
+                  <input type="text" class="form-control" id="l_name" aria-describedby="emailHelp" placeholder="Digite o sobrenome" name="l_name" >
+                </div>
+                <div class="form-group">
+                  <label for="age">Idade</label>
+                  <input maxLength="3" min="0" class="form-control" id="age" aria-describedby="emailHelp" name="age" placeholder="Digite a idade" >
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Digite o E-mail">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Telefone</label>
+                  <input maxLength="25" min="0" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phoneNumber" placeholder="Digite o Telefone (Apenas números)">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  <footer>
+    <div class="footerDiv">
+        <span>WebApp desenvolvido por Henrique Vidal © 2021</span>
+    </div>
+  </footer>
+  </div>
+
+  <script src="../main.js"></script>
+</body>

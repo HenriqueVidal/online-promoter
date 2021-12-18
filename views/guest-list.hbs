@@ -1,0 +1,175 @@
+
+<style>
+.globalContainer {  
+  min-height: 100vh;
+}
+.paddingMaker {
+  padding: 0px 6px;
+}
+.navButtonsAside > a {
+  margin: 2px;  
+  text-decoration: none;
+}
+#searchGuest {
+  background-image: url('/css/searchicon.png'); 
+  background-position: 177px 6px;
+  background-repeat: no-repeat;
+  font-size: 16px; 
+  padding: 6px;
+  margin: 0px 10px;
+  width: 210px;
+}
+.btn-print {
+  background-image: url('../images/printer.png');
+  background-position: 3px 4px;
+  background-repeat: no-repeat;
+  background-color: #dbdbdbd1;
+  border-color: #dbdbdbd1; 
+  font-weight: bold; 
+  color: black;
+  width: 112px;
+  text-align: right;
+  margin: auto;
+}
+.btn-print:hover {
+  background-color: #8d9093b8;
+  border-color: #8d9093b8;
+}
+.printDiv {
+  margin: auto;
+  margin-left: 10px;
+}
+.printDiv > a {
+  margin: 2px;
+}
+.guestTitle > div {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+#guestUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 10px;
+}
+#guestUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; 
+  background-color: #f6f6f6; 
+  padding: 12px;
+  text-decoration: none; 
+  font-size: 18px; 
+  color: black; 
+  display: block; 
+}
+#guestUL li a:hover:not(.header) {
+  background-color: #eee; 
+}
+hr {
+  margin-top: 0px;
+}
+</style>
+
+<header>
+
+</header>
+<div class="globalContainer">
+  <div class="paddingMaker">
+    <nav class="navButtons">
+    <form method="get" action="logout" >
+      <button class="btn btn-secondary">Sair</button>
+    </form>
+    <div class="navButtonsAside">
+      <a href="/e/edit-guest" class="btn-edit"><button class="btn btn-primary">Editar Convidado</button></a>
+      <a href="/a/add-guest"><button class="btn btn-primary btn-add">Adicionar Convidados</button></a>
+    </div>
+    </nav>
+    <main class="mainContainer">
+        {{!--<aside class="deleteGuest">
+        <div class="deleteDiv">
+          <h2>Alterar dados de um convidado</h2>
+          <h3 class="deleteH3">Código:</h3>
+           <form method="post" action="edit-guest" class="editForm">
+            <input type="text" maxlength="3" class="form-control col-lg-9" id="editId">
+            <a href="../page/editGuest"><input type="submit" class="btn btn-primary btn-edit" value="Editar"></input></a>--}}
+          {{!-- </form> --}}
+    
+      <div class="Container">
+          <h2>Convidados cadastrados (<span class="idP">{{guestCount}}</span>) </h2>
+        <div class="guestTitle">
+          <div class="deleteDiv">
+            <h3 class="deleteH3">Remover convidado:</h2>
+            <form  method="post" action="deleteGuest" class="deleteForm">
+              <h3 class="codeH3">Código</h3>
+                <input type="text" maxlength="3" name="deleteId" class="form-control col-lg-9" id="deleteId" onkeyup="finderId()" >
+                <input type="submit" class="btn btn-delete" value="Excluir"></input>
+            </form>
+          </div>
+          <div class="inputsDiv">
+            <input type="text" class="form-control" id="searchGuest" onkeyup="finderName()" placeholder="Buscar convidado...">
+            <input type="button" class="btn btn-primary" onClick="document.location.reload(true)" value="Atualizar"></input>
+          </div>
+          <div class="printDiv">
+            <a href="/p/print" target="_blank" ><input type="button" class="btn btn-print btn-secondary" value="Imprimir"></a>
+          </div>
+        </div>
+        <hr>
+        <ul class="guestContainer" id="guestUL">
+          {{#each convidados}}
+            <li>
+              <div class="guestDiv" id="guest-{{id}}">
+                Código:<strong class="idP"> {{id}}</strong> <br>
+                Nome:<strong class="searchP">    {{nome}} {{sobrenome}}</strong> <br>
+                Idade:<strong>    {{idade}}</strong> <br>
+                E-mail:<strong> {{email}}</strong> <br>
+                Telefone:<strong>  {{telefone}}</strong>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </main>
+  </div>
+  <footer>
+    <div class="footerDiv">
+        <span>WebApp desenvolvido por Henrique Vidal © 2021</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function finderName() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('searchGuest');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("guestUL");
+    li = ul.getElementsByTagName('li');
+
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByClassName("searchP")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+  function finderId() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('deleteId');
+    filter = input.value;
+    ul = document.getElementById("guestUL");
+    li = ul.getElementsByTagName('li');
+
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByClassName("idP")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.indexOf(filter) > -1) {
+        li[i].style.display = "block";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+</script>

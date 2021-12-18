@@ -1,0 +1,83 @@
+<body>
+<style>  
+.container0 {
+  margin-top: 2%;
+}
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #007bff;
+}
+.navButtons {
+  margin: auto;  
+  padding: 2px 6px;
+}
+.card {
+  margin: 40px auto 0px auto;
+  max-width: 340px;  
+  min-width: 325px;
+  background-color: #F0F2F5;
+  box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
+}
+.formEdit {
+  margin: auto;
+}
+</style>
+
+  <div class="globalContainer">
+    <div>
+      <nav class="navButtons">
+        <form action="logout" method="get">
+          <button class="btn btn-secondary">Sair</button>
+        </form> <br>
+        <div>
+          <form action="/b/customer-list"><button class="btn btn-primary">Lista de Convidados</button></form>
+        </div>
+      </nav>
+      <main class="container0">
+        <div class="grid2">
+          <div class="imgDiv">
+            <img src="/images/logo.png" alt="Logo" class="imgLogo">
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h2>Adicionar Cliente</h2>
+              <br>
+              {{#if expressFlash}}
+                <div class="alert alert-success m2-4 mb-2" role="alert" style="text-align: center">
+                  {{expressFlash}}
+                </div>
+              {{/if}}
+                <br>
+              <form action="add-customer" method="POST">
+                <div class="form-group">
+                  <label for="customerName">Nome</label>
+                  <input type="text" class="form-control" id="customerName" aria-describedby="emailHelp" placeholder="Digite o nome" name="customerName" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Telefone</label>
+                  <input maxLength="25" min="0" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="phoneNumber" placeholder="Digite o telefone (Apenas números)">
+                </div>
+                <div class="form-group">
+                  <label for="service">Serviço</label>
+                  <input type="text" class="form-control" id="service" aria-describedby="emailHelp" placeholder="Serviço que será realizado" name="service" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="time">Horário</label>
+                  <input maxLength="7" min="0" class="form-control" id="time" aria-describedby="emailHelp" name="time" placeholder="Digite o horário" required="required">
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin: 0px 39%;">Salvar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  <footer>
+    <div class="footerDiv">
+        <span>WebApp desenvolvido por Henrique Vidal © 2021</span>
+    </div>
+  </footer>
+  </div>
+
+</body>

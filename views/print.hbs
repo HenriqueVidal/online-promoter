@@ -1,0 +1,96 @@
+<body>    
+    <style>
+    .globalContainer {
+        line-height: 1.3;
+    }
+    .header {        
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+    }
+    .dateH3 {
+        margin: 0px 0px 0px auto;
+    }
+    .guestDiv {
+        font-size: 1.5em;
+        line-height: 1.3em;
+        background-color: white;
+        display: block;
+        //border: 1px solid #00000020;
+        border: 1px solid black;
+        border-radius: 4px;
+        padding: 6px;
+        margin: 2px;
+        width: 310px;
+        //min-height: 125px;
+        max-height: 291px;
+    }
+    .Container {
+        //border: 1px solid black;
+        border-radius: 4px
+    }
+    .Container h1 {
+        text-align: left;
+        text-indent: 20px;
+        margin: 0px;
+    }
+    .guestDiv {
+        //margin: auto;
+        width: 310px;
+        min-height: 125px;
+    }    
+    #guestUL {
+        list-style-type: none;
+        padding: 0;
+        //margin: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-indent: 10px;
+    }
+    li {
+        margin-bottom: 4px;
+    }
+    .guestContainer {
+        display: grid;
+        grid-template-columns: 325px 325px;
+    }
+    .idP {
+    color: #007bff;
+    }
+    </style>
+{{!--     <form action="download" method="post">
+        <input type="submit" value="Download" class="btn btn-primary">
+    </form> --}}
+    <div class="globalContainer">
+        <main class="Container">
+            <header class="header">
+                <h1>Lista de Convidados (<span class="idP">{{guestCount}}</span>)</h1>
+                <h3 class="dateH3"></h3> <br>
+            </header>
+            <hr>
+            <ul class="guestContainer1" id="guestUL">
+                {{#each convidados}}
+                <li>
+                    <div class="guestDiv1" id="guest-{{id}}">
+                    Código:<strong class="idP">  {{id}} </strong>
+                   - Nome:<strong class="searchP">    {{nome}} {{sobrenome}} - </strong>{{!--
+                    Idade:<strong>    {{idade}}</strong> <br>
+                    E-mail:<strong> {{email}}</strong> <br> --}}
+                    Telefone:<strong>  {{telefone}}</strong>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </main>
+    </div>
+    <script> 
+        const fullDate = new Date;
+        let hourDate = fullDate.getHours() + ":" + fullDate.getMinutes() + ":" + fullDate.getSeconds();
+        let dayDate = fullDate.getDate() + "/" + (fullDate.getMonth()+1) + "/" + fullDate.getFullYear();
+        const getDateH3 = document.querySelector(".dateH3");
+        getDateH3.innerHTML = "<div>" +  dayDate  +  "</div>";
+
+        window.print();   
+    </script>
+</body>

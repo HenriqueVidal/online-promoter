@@ -1,0 +1,62 @@
+
+<style>
+body{
+   background-color: #f8f9fa;
+   line-height: 0.5;
+}
+.container {
+   margin-top: 10%;
+}
+.card {
+  margin: 40px auto 0px auto;
+  max-width: 340px;
+  background-color: #F0F2F5;  
+  box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
+}
+.loginForm {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   flex-wrap: nowrap;
+   align-content: center;
+}
+.card-body > h2 {
+   text-align: center;
+}
+</style>
+
+<div class="globalContainer">
+   <main class="container">
+      <div class="grid2">
+         <div class="imgDiv">
+            <img src="/images/logo.png" alt="Logo" class="imgLogo">
+         </div>
+         <div class="card">
+   
+               {{#if expressFlash}}
+                  <div class="alert alert-danger m2-4 mb-2" role="alert"
+                  style="text-align: center">
+                     {{expressFlash}}
+                  </div>
+               {{/if}}
+   
+            <div class="card-body">
+               <h2>Para continuar, efetue o login.</h2> <br>
+   
+               <form method="POST" class="loginForm">
+                  <input id="userNameF" type="text" name="login" class="form-control" placeholder="Usuário" required="required"> <br>
+                  <input id="userPasswordF" type="password" class="form-control" name="password" placeholder="Senha"> <br>
+                  <input type="submit" value="Entrar" class="btn btn-primary"></input>
+               </form>
+            </div>
+         </div>
+      </div>
+   </main>
+   <div class="spacer"></div>
+   <footer>
+      <div class="footerDiv">      
+         <span>WebApp desenvolvido por Henrique Vidal © 2021</span>
+      </div>
+   </footer>
+</div>

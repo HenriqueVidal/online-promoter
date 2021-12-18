@@ -1,0 +1,51 @@
+<header>
+
+</header>
+<nav class="navButtons">
+<form method="get" action="logout" >
+  <button class="btn btn-secondary">Sair</button> 
+</form>
+
+<a href="add-guest"><button class="btn btn-primary">Adicionar Covidados</button></a>
+</nav>
+<main class="mainContainer">  
+  <aside class="deleteGuest">
+    <div class="deleteDiv">
+      <h2>Alterar dados de um convidado</h2>
+     {{!-- <h3 class="deleteH3">Código:</h3>
+       <form method="post" action="edit-guest" class="editForm"> 
+        <input type="text" maxlength="3" class="form-control col-lg-9" id="editId">--}}
+        <a href="../page/editGuest"><input type="submit" class="btn btn-primary btn-edit" value="Editar"></input></a>
+      {{!-- </form> --}}
+    </div>
+      <div class="deleteDiv">   
+        <h2 class="deleteH2">Remover convidado</h2>
+        <h3 class="deleteH3">Código:</h3>
+        <form  method="post" action="deleteGuest" class="deleteForm">
+          <input type="text" maxlength="3" name="deleteId" class="form-control col-lg-9" id="deleteId">
+          <input type="submit" class="btn btn-delete" value="Excluir"></input>
+        </form>
+      </div>
+    
+  </aside>
+  
+    <div class="Container">
+      <hr> 
+      <div class="guestTitle">
+        <h2>Convidados cadastrados</h2> <input type="button" class="btn btn-primary" onClick="document.location.reload(true)" value="Atualizar"></input>
+      </div>
+      <ul class="guestContainer">
+        {{#each convidados}}
+          <li>
+          <div class="guestDiv" id="guest-{{id}}">       
+                Código:<strong class="idP" >   {{id}}</strong> <br>
+                Nome:<strong>     {{nome}} {{sobrenome}}</strong> <br>
+                Idade:<strong>    {{idade}}</strong> <br>
+                E-mail:<strong>   {{email}}</strong> <br>
+                Telefone:<strong> {{telefone}}</strong>
+          </div>
+           </li>
+          {{/each}}
+          </ul>
+    </div>
+</main>

@@ -1,0 +1,86 @@
+<body>
+<style>  
+.container0 {
+  margin-top: 2%;
+}
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #007bff;
+}
+.navButtons {
+  margin: auto;  
+  padding: 2px 6px;
+}
+.card {
+  margin: 40px auto 0px auto;
+  max-width: 340px;
+  background-color: #F0F2F5;
+  box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
+}
+.formEdit {
+  margin: auto;
+}
+</style>
+
+  <div class="globalContainer">
+    <div>
+      <nav class="navButtons">
+        <form action="logout" method="get">
+          <button class="btn btn-secondary">Sair</button>
+        </form> <br>
+        <div>
+          <form action="/l/guest-list"><button class="btn btn-primary">Lista de Convidados</button></form>
+        </div>
+      </nav>
+      <main class="container0">
+        <div class="grid2">
+          <div class="imgDiv">
+            <img src="/images/logo.png" alt="Logo" class="imgLogo">
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h2>Adicionar Convidados</h2>
+              <br>
+              {{#if expressFlash}}
+                <div class="alert alert-success m2-4 mb-2" role="alert" style="text-align: center">
+                  {{expressFlash}}
+                </div>
+              {{/if}}
+                <br>
+              <form action="add-guest" method="POST">
+                <div class="form-group">
+                  <label for="firstName">Nome</label>
+                  <input type="text" class="form-control" id="f_name" aria-describedby="emailHelp" placeholder="Digite o nome" name="f_name" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Sobrenome</label>
+                  <input type="text" class="form-control" id="l_name" aria-describedby="emailHelp" placeholder="Digite o sobrenome" name="l_name" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="age">Idade</label>
+                  <input maxLength="3" min="0" class="form-control" id="age" aria-describedby="emailHelp" name="age" placeholder="Digite a idade" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Digite o E-mail">
+                </div>
+                <div class="form-group">
+                  <label for="phoneNumber">Telefone</label>
+                  <input type="tel" maxLength="25" min="0" class="form-control" id="phoneNumber" aria-describedby="emailHelp" name="phoneNumber" placeholder="Digite o Telefone (Apenas números)" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}">
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin: 0px 39%;">Salvar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  <footer>
+    <div class="footerDiv">
+        <span>WebApp desenvolvido por Henrique Vidal © 2021</span>
+    </div>
+  </footer>
+  </div>
+
+</body>

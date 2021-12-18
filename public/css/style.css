@@ -1,0 +1,299 @@
+@font-face {
+  font-family: "Chairdrobe";
+  src: url("fonts/Chairdrobe Light.otf") format("opentype")
+  }
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0px;
+  background-color: #F0F2F5;
+  /* padding: 10px; */
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+  background-color: #f8f9fa;
+  line-height: 0.5;
+}
+.globalContainer {
+  padding: 0px;  
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+}
+.imgDiv {
+  margin: auto;
+  min-width: 140px;
+  display: flex;
+  padding: 10px;
+}
+.imgLogo {
+  min-width: 200px;
+  margin: 0px auto;
+}
+.grid2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.navButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center; 
+}
+.navButtonsAside {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.mainContainer {
+  border: 1px solid #00000020;
+  margin: 10px auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px #0000001a, 0 8px 16px #0000001a;
+}
+.guestTitle {  
+  margin: 4px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.guestContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+}
+.guestContainer p {
+  margin: auto;
+}
+.guestDiv {
+  font-size: 1.5em;
+  line-height: 1.3em;
+  background-color: white;
+  display: block;
+  border: 1px solid #00000020;
+  border-radius: 4px;
+  padding: 6px;
+  margin: 2px;
+  width: 345px;
+  /* max-width: 300px; */
+  min-height: 188px;
+  max-height: 291px;
+}
+.Container > h2 {
+  text-align: center;  
+  padding: 0px 0px 4px 0px;
+  margin: 0px;
+  background-color: #dbdbdbd1;
+}
+.idP {
+  color: #007bff;
+}
+.btn { 
+  line-height: 1;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+ /*  line-height: 1.5; */
+  border-radius: 0.25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-primary {
+  display: block;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary:hover{
+color:#fff;
+background-color:#0069d9;
+border-color:#0062cc
+}
+.btn-primary.focus,.btn-primary:focus{
+box-shadow:0 0 0 .2rem #007bff80
+}
+.btn-primary.disabled,.btn-primary:disabled{
+color:#fff;
+background-color:#007bff;
+border-color:#007bff
+}
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    margin-top: 4px;
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+.btn:focus, .btn:hover {
+    text-decoration: none;
+}
+.btn-delete {
+  color: white;
+  background-color: #e72c13f2;
+  border-color: #e72c13f2;
+  border-radius: 20px;
+}
+.btn-edit {
+    margin: 0px 10px;
+}
+.btn-delete:hover {
+  background-color: #ff1e00;
+  border-color: #ff1e00;
+}
+.form-control {
+  display: block;
+  max-width: 300px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+input {
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  margin: 0em;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+.inputsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+#deleteId {
+  max-width: 40px;
+  max-height: 23px;
+  margin: 0px 10px;
+  padding: 3px;
+}
+#deleteId:focus {  
+  border-color: #ff3800;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #ff380040;
+}
+#deleteId:hover {  
+  border-color: #ff3800;
+}
+.deleteGuest {    
+  /* border: 1px solid dimgrey; */
+  border-radius: 4px;
+  /* padding: 1rem; */
+  display: flex;
+  flex-direction: row;
+  margin: 10px auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* max-width: 470px; */
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+.deleteDiv {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  /* max-width: 240px; */
+  /* min-height: 154px; */
+  margin: auto;    
+  margin-right: 10px;
+}
+.deleteForm {
+  display: flex;
+  align-items: center;
+}
+.deleteH3 {
+  margin-right: 10px;
+  color: #e72c13f2;
+  font-size: 1.2em;
+}
+.codeH3 {
+  font-size: 1em;
+  margin-left: 10px;
+  color: #e72c13f2;
+}
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+hr {
+  border: 1px solid #00000020;
+}
+footer {
+  margin-top: 40px;
+}
+.footerDiv {  
+  color: #212529;
+  background-color: lightgray;
+  line-height: 1.3rem;
+  font-size: 14px;
+  font-weight: 400;  
+  text-align: center;
+}
+input:hover {
+  border-color: #80bdff;
+}
