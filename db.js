@@ -15,7 +15,7 @@ connection.connect(function(err) {
   
   //Sequelize Setup
 const { Sequelize, DataTypes } = require ("sequelize");
-const sequelize = new Sequelize('r3cwzgvgrzf7wga5', 'wzy2zfza6343alpc', 'epehzau0unoaqtkg', {host: 'uyu7j8yohcwo35j3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', dialect: 'mysql'});
+const sequelize = new Sequelize('r3cwzgvgrzf7wga5', 'wzy2zfza6343alpc', 'epehzau0unoaqtkg', {host: 'uyu7j8yohcwo35j3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306', dialect: 'mysql'});
 sequelize.authenticate().then().catch(function(err){
   console.log("(" + HourDate + ") " + "Problema de conexão com o MySQL, erro: " + err);
 });
