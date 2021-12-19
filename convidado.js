@@ -26,4 +26,7 @@ const convidado = sequelize.define("convidados", {
   }
 });
 
+
+convidado.sync();
+
 module.exports = convidado;
