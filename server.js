@@ -103,12 +103,11 @@ app.post('/', (req, res) => {
     req.session.login = login;      
     console.log("(" + HourDate + ") " + "Usuário conectado: "+ req.session.login); 
     (async () => {
+      try {
         //guestCount = await Convidado.count();
         Convidado.findAll().then(function(convidados){
         res.render("guest-list", {convidados: convidados, guestCount, title: "Convidados cadastrados"});
         });
-      try {
-        this;
       } catch (e) {
         console.error(e);
       }
