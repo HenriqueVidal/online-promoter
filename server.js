@@ -14,7 +14,7 @@ const path = require('path');
 const db = require('./db');
 const app = express();
 
-Convidado.convidado.sync();
+Convidado.sequelize.sync();
 
 
 // VIEWS SETUP
