@@ -14,6 +14,8 @@ const path = require('path');
 const db = require('./db');
 const app = express();
 
+Convidado.sync();
+
 // VIEWS SETUP
 app.engine('hbs', engine({ extname: '.hbs', defaultLayout: "main", runtimeOptions: {
   allowProtoPropertiesByDefault: true,
