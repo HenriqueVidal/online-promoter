@@ -43,7 +43,7 @@ async function selectUsers(){
 };
 async function selectOnlyNames(){
   const conn = await connect();
-  const [rows] = await conn.query("SELECT id as Código, nome as Cliente FROM convidados.convidados;");
+  const [rows] = await conn.query("SELECT id as Código, nome as Cliente FROM r3cwzgvgrzf7wga5.convidados;");
   return rows;
 };
 async function selectBarberOnlyNames(){
@@ -53,12 +53,12 @@ async function selectBarberOnlyNames(){
 };
 async function selectNames(){
   const conn = await connect();
-  const [rows] = await conn.query("SELECT nome FROM convidados.convidados where id=2;");
+  const [rows] = await conn.query("SELECT nome FROM r3cwzgvgrzf7wga5.convidados where id=2;");
   return rows;
 };
 async function insertUser(user){
   const conn = await connect();
-  const sql = "INSERT INTO convidados.convidados(nome, sobrenome, idade, email, telefone, createdAt, updatedAt) VALUES (?,?,?,?,?,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);";
+  const sql = "INSERT INTO r3cwzgvgrzf7wga5.convidados(nome, sobrenome, idade, email, telefone, createdAt, updatedAt) VALUES (?,?,?,?,?,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);";
   const values = [user.nome, user.sobrenome, user.idade, user.email, user.telefone];
   await conn.query(sql, values);
 };
@@ -70,13 +70,13 @@ async function insertBarberCustomer(user){
 };
 async function updateUser(id, user){
   const conn = await connect();
-  const sql = "UPDATE convidados SET nome=?, sobrenome=?, idade=?, email=?, telefone=?, updatedAt=CURRENT_TIMESTAMP WHERE id=?;";
+  const sql = "UPDATE r3cwzgvgrzf7wga5.convidados SET nome=?, sobrenome=?, idade=?, email=?, telefone=?, updatedAt=CURRENT_TIMESTAMP WHERE id=?;";
   const values = [user.nome, user.sobrenome, user.idade, user.email, user.telefone, id];
   return await conn.query(sql, values);
 };
 async function deleteUser(id){
   const conn = await connect();
-  const sql = "DELETE FROM convidados WHERE id=?;";
+  const sql = "DELETE FROM r3cwzgvgrzf7wga5.convidados WHERE id=?;";
   return await conn.query(sql, [id]);
 };
 
