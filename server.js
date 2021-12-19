@@ -103,11 +103,15 @@ app.post('/', (req, res) => {
     req.session.login = login;      
     console.log("(" + HourDate + ") " + "Usuário conectado: "+ req.session.login); 
     (async () => {
-      //guestCount = await Convidado.count();
-      Convidado.findAll().then(function(convidados){
-      res.render("guest-list", {convidados: convidados, guestCount, title: "Convidados cadastrados"}).catch(function(e){console.log(e)});
-      }).catch(function(e){console.log(e)});
-    }).catch(function(e){console.log(e)})();
+      try {
+        guestCount = await Convidado.count();
+        Convidado.findAll().then(function(convidados){
+        res.render("guest-list", {convidados: convidados, guestCount, title: "Convidados cadastrados"});
+        }).catch(function(e){console.log(e)});
+      } catch (e) {
+        console.error(e);
+      }
+    })()
   } else if(req.body.password == "cliente" && req.body.login == "cliente") {
    req.session.login = "cliente";
    console.log("(" + HourDate + ") " + "Usuário conectado: " + req.session.login); 
