@@ -15,7 +15,7 @@ connection.connect(function(err) {
   
   //Sequelize Setup
 const { Sequelize, DataTypes } = require ("sequelize");
-const sequelize = new Sequelize('convidados', 'pclocal', 'Pardinho1', {host: '192.168.0.5', dialect: 'mysql'});
+const sequelize = new Sequelize('r3cwzgvgrzf7wga5', 'wzy2zfza6343alpc', 'epehzau0unoaqtkg', {host: 'uyu7j8yohcwo35j3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com', dialect: 'mysql'});
 sequelize.authenticate().then().catch(function(err){
   console.log("(" + HourDate + ") " + "Problema de conexão com o MySQL, erro: " + err);
 });
@@ -26,7 +26,7 @@ async function connect(){
       return global.connection;
   }
   const mysql = require("mysql2/promise");
-  const connection = await mysql.createConnection("mysql://pclocal:Pardinho1@192.168.0.5:3306/convidados");
+  const connection = await mysql.createConnection("mysql://wzy2zfza6343alpc:epehzau0unoaqtkg@uyu7j8yohcwo35j3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/r3cwzgvgrzf7wga5");
   console.log("(" + HourDate + ") " + "Conectado a MySQL! (MySQL2)");
   global.connection = connection;
   return connection;
