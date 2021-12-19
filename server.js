@@ -4,9 +4,10 @@ const session = require('express-session');
 const createError = require('http-errors');
 const bodyParser = require('body-parser');
 const Convidado = require("./convidado");
-const Cliente = require("./cliente");
 const favicon = require('serve-favicon');
 const flash = require('connect-flash');
+const port = process.env.PORT || 5000;
+const Cliente = require("./cliente");
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
@@ -147,8 +148,8 @@ app.get('/:logout', (req, res) => {
   res.redirect('/');     
 }); 
 
-app.listen(3000, function () {
-  console.log('Servidor rodando na porta: 3000');
+app.listen(port, function () {
+  console.log('Servidor rodando na porta: 5000');
 });
 
 // catch 404 and forward to error handler
