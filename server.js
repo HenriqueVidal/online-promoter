@@ -105,7 +105,7 @@ app.post('/', (req, res) => {
     (async () => {
       //guestCount = await Convidado.count();
       Convidado.findAll().then(function(convidados){
-      res.render("guest-list", {convidados: convidados, guestCount, title: "Convidados cadastrados"});
+      res.render("guest-list", {convidados: convidados, guestCount, title: "Convidados cadastrados"}).catch(function(e){console.log(e)});
       }).catch(function(e){console.log(e)});
     }).catch(function(e){console.log(e)})();
   } else if(req.body.password == "cliente" && req.body.login == "cliente") {
