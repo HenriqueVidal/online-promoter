@@ -85,11 +85,11 @@
         </main>
     </div>
     <script> 
-        const fullDate = new Date;
-        let hourDate = fullDate.getHours() + ":" + fullDate.getMinutes() + ":" + fullDate.getSeconds();
-        let dayDate = fullDate.getDate() + "/" + (fullDate.getMonth()+1) + "/" + fullDate.getFullYear();
+        const fullDate = new Date().toLocaleDateString();
+        //let hourDate = fullDate.getHours() + ":" + fullDate.getMinutes() + ":" + fullDate.getSeconds();
+        //let dayDate = fullDate.getDate() + "/" + (fullDate.getMonth()+1) + "/" + fullDate.getFullYear();
         const getDateH3 = document.querySelector(".dateH3");
-        getDateH3.innerHTML = "<div>" +  dayDate  +  "</div>";
+        getDateH3.innerHTML = "<div>" +  fullDate  +  "</div>";
 
         window.print();   
     </script>

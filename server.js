@@ -182,7 +182,7 @@ const fullDate = new Date;
 let hour = addZero(fullDate.getHours());
 let min = addZero(fullDate.getMinutes());
 let sec = addZero(fullDate.getSeconds());
-let HourDate = hour + ":" + min + ":" + sec;
+let HourDate = new Date().toLocaleString("pt-BR"); /* hour + ":" + min + ":" + sec; */
 let dayDate = fullDate.getDate() + "/" + (fullDate.getMonth+1) + "/" + fullDate.getFullYear();
 
 module.exports = app;

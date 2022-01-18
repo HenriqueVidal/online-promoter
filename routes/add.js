@@ -54,7 +54,7 @@ function addZero(i) {
   if (i < 10) {i = "0" + i}
   return i;
 };
-  const fullDate = new Date;
+const fullDate = new Date;
 let hour = addZero(fullDate.getHours());
 let min = addZero(fullDate.getMinutes());
 let sec = addZero(fullDate.getSeconds());
